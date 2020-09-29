@@ -17,7 +17,7 @@ export class Mine extends Component {
         this.base_color = theme.palette.primary.main
         this.open_color = theme.palette.secondary.main
         this.hover_color = theme.palette.primary.hover
-        
+        this.size = 100/30 - 0.79 + "vw"
         this.onClick = this.onClick.bind(this)
         this.onMouseOver = this.onMouseOver.bind(this)
         this.onMouseOut = this.onMouseOut.bind(this)
@@ -59,10 +59,10 @@ export class Mine extends Component {
 
     get_styles_mine() {
         return {
-            width:  "5vw",
-            height: "5vw",
+            width:  this.size,
+            height: this.size,
             backgroundColor: this.state.backgroundColor,
-            textMargin: "2vw"
+            textMargin: this.size / 2
         }
     }
 
@@ -70,9 +70,9 @@ export class Mine extends Component {
         return {
             textAlign: "center",
             fontFamily: "sans-serif",
-            margin: "1vw",
+            margin: this.size / 1.5,
             color: grey[600],
-            fontSize: "3vw"
+            fontSize: this.size / 2
         }
     }
     render() {
