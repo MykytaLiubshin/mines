@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import {Card} from '@material-ui/core'
 import {theme, useStyles} from "./../../App/styles"
 import {grey} from "@material-ui/core/colors"
-import { zIndex } from 'material-ui/styles';
 
 
 export class Mine extends Component {
@@ -17,7 +16,7 @@ export class Mine extends Component {
         this.base_color = theme.palette.primary.main
         this.open_color = theme.palette.secondary.main
         this.hover_color = theme.palette.primary.hover
-        this.size = 100/30 - 0.79 + "vw"
+        this.size = (100/30 - 0.79 - (100/30 - 0.79) % 0.5)
         this.onClick = this.onClick.bind(this)
         this.onMouseOver = this.onMouseOver.bind(this)
         this.onMouseOut = this.onMouseOut.bind(this)
@@ -59,20 +58,21 @@ export class Mine extends Component {
 
     get_styles_mine() {
         return {
-            width:  this.size,
-            height: this.size,
+            width:  this.size + "vw",
+            height: this.size + "vw",
             backgroundColor: this.state.backgroundColor,
-            textMargin: this.size / 2
+            textMargin: this.size / 2 + "vw"
         }
     }
 
     get_styles_text () {
         return {
             textAlign: "center",
+            position: "absolute",
             fontFamily: "sans-serif",
-            margin: this.size / 1.5,
+            margin: this.size / 4 + "vw",
             color: grey[600],
-            fontSize: this.size / 2
+            fontSize: this.size / 2 + "vw"
         }
     }
     render() {
